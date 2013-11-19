@@ -1,0 +1,44 @@
+<div id="default_page">
+  <div id="admin_navigation">
+  </div>
+  <div id="default_sub_page">
+    <%= form_tag search_admino_reports_path, :method => 'get' do %>
+      <table>
+        <tr>
+          <td>Search</td>
+          <td><%= text_field_tag(:query, "#{params[:query] || 'Name OR ID'}",:onFocus => "if(this.value=='Name OR ID') this.value='';",:onBlur => "if(this.value=='') this.value='Name OR ID';", :style => "background:#545151;color: white;-moz-border-radius: 5px;width: 281px;height: 24px;") %>
+          </td>
+          <td><button type="submit"  style="background: none; border: none;"><%=  image_tag('search button.png') %></button>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+    <% if @users && params[:query]%>
+      <table cellpadding="8px" cellspacing="0px"  width="50%" border="0" style="margin: 16px -30px;">
+        <tr style="background-color:#333232; font-size: 14px; color: white; font-family:'Liberation Sans';" >
+          <th class="table_border">Id code</th>
+          <th class="table_border">Full Name</th>
+          <th>Category</th>
+        </tr>
+        <% @users.each do |a| %>
+          <% if a.user_type == 'student' %>
+            <tr  style="font-size: 11px; font-family:'Liberation Sans';" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+              <td class="table_border"><%= link_to a.account_id, student_view_student_path(a.student.id), :remote => true %></td>
+              <td class="table_border"><%= link_to a.display_name, student_view_student_path(a.student.id), :remote => true %></td>
+              <td><%= a.student.education_type %></td>
+            </tr>
+          <% else %>
+            <tr  style="font-size: 11px; font-family:'Liberation Sans';" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+              <td class="table_border"><%= link_to a.account_id, mentor_view_mentor_path(a.mentor.id), :remote => true %></td>
+              <td class="table_border"><%= link_to a.display_name, mentor_view_mentor_path(a.mentor.id), :remote => true %></td>
+              <td><%= a.mentor.education_type %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    <% end %>
+    <div id="show_div">
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module Admino::ReportsHelper
+end

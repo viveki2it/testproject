@@ -1,0 +1,2 @@
+module Admino::StatusHelper
+end

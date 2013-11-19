@@ -1,0 +1,2 @@
+module Admino::AdminoHelper
+end

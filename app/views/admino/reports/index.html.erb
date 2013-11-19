@@ -1,0 +1,58 @@
+<div id="default_page">
+  <div id="admin_navigation">
+  </div>
+  <div id="default_sub_page">
+    <table width="40%" border="0" cellpadding="8px" cellspacing="0" align="left">
+      <tr>
+        <td>Total Mentors</td><td>=</td><td> <%=Mentor.all.count%></td>
+      </tr>
+      <tr>
+        <td><hr></td>  <td><hr></td>  <td><hr></td>
+      </tr>
+      <tr>
+        <td>Professors</td><td>=</td><td><%=Mentor.where("education_type = 'professor'").count%></td>
+      </tr>
+      <tr>
+        <td>School Teachers</td><td>=</td><td><%=Mentor.where("education_type = 'school'").count%></td>
+      </tr>
+      <tr>
+        <td>Corporate Trainers</td><td>=</td><td><%=Mentor.where("education_type = 'corporate'").count%></td>
+      </tr>
+      <tr>
+        <td>Researcher</td><td>=</td><td><%=Mentor.where("education_type = 'research'").count%></td>
+      </tr>
+      <tr>
+        <td>Professional</td><td>=</td><td><%=Mentor.where("education_type = 'professional'").count%></td>
+      </tr>
+      <tr>
+        <td>I am good in this</td><td>=</td><td><%=Mentor.where("education_type = 'good'").count%></td>
+      </tr>
+    </table>
+    <table width="40%" border="0" cellpadding="8px" cellspacing="0" align="right" style="margin: 0 33px;">
+      <tr>
+        <td>Total Learners</td><td>=</td><td> <%=Student.all.count%></td>
+      </tr>
+      <tr>
+        <td><hr></td>  <td><hr></td>  <td><hr></td>
+      </tr>
+      <tr>
+        <td>School</td><td>=</td><td><%=Student.where("education_type = 'in_school'").count%></td>
+      </tr>
+      <tr>
+        <td>College Student</td><td>=</td><td><%=Student.where("education_type = 'college'").count%></td>
+      </tr>
+      <tr>
+        <td>PG Student</td><td>=</td><td><%=Student.where("education_type = 'pg'").count%></td>
+      </tr>
+      <tr>
+        <td>Ph.D Student</td><td>=</td><td><%=Student.where("education_type = 'phd'").count%></td>
+      </tr>
+      <tr>
+        <td>Professional</td><td>=</td><td><%=Student.where("education_type = 'professional'").count%></td>
+      </tr>
+      <tr>
+        <td>Others</td><td>=</td><td><%=Student.where("education_type = 'other'").count%></td>
+      </tr>
+    </table>
+  </div>
+</div>
